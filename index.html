@@ -14,9 +14,9 @@
  }
 	
 	   /* put cars on different lanes */
-    #car1 { top: 25px; }
-    #car2 { top: 150px; }
-    #car3 { top: 250px; }
+    #car1 { top: 5px; }
+    #car2 { top: 110px; }
+    #car3 { top: 215px; }
 	
     button {
       position: absolute;
@@ -24,36 +24,76 @@
       left: 20px;
       padding: 10px 20px;
       font-size: 18px;
-      
     }
 	
-	<!-- jQuery CDN -->
+	    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 120px;
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .controls input {
+      width: 60px;
+      margin-right: 10px;
+    }
+	
+	#finish {
+		position: absolute;
+		right: 80px;
+		transform: rotate(90deg);
+		width: 400px;
+	}
   
 	
 </style>
+		<!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+	
+	  <div class="controls">
+    <div>
+      Car 1 speed (seconds): <input type="number" id="speed1" value="5">
+    </div>
+    <div>
+      Car 2 speed (seconds): <input type="number" id="speed2" value="6">
+    </div>
+    <div>
+      Car 3 speed (seconds): <input type="number" id="speed3" value="7">
+    </div>
+ 
+  </div>
+	
 <button id="start">Race</button>
+	<img src="data:image/png;base64,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" id="finish">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8MnNPWrAWPtJCYbc1uZhIedXDXjRyNVa5CQ&s" id="car1" class="car">
 <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZUiJPgHQzaO05QejgC-KyDtzoeOJXJc2YvQ&s" id="car2" class="car">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgZj26kZuwefVVulEvliuhMSypgYEP_TwhPQ&s" id="car3" class="car">
 	
+	
 	<script>
     $(document).ready(function() {
       $("#start").click(function() {
-        var $car = $(".car");
+        // read speeds from inputs (in seconds → convert to ms)
+        let s1 = parseFloat($("#speed1").val()) * 1000;
+        let s2 = parseFloat($("#speed2").val()) * 1000;
+        let s3 = parseFloat($("#speed3").val()) * 1000;
 
-        // reset position
-        $car.stop(true, true).css({ left: "0px" });
+        let carWidth = $("#car1").width();
+        let finish = $(window).width() - carWidth;
 
-        // animate to the right side of the screen
-        $car.animate(
-          { left: ($(window).width() - $car.width()) + "px" }, // move across full screen width
-          5000, // 5 seconds
-          "linear" // smooth speed
-        );
+        // animate each car
+        $("#car1").stop(true, true).css({ left: "0px" })
+          .animate({ left: finish + "px" }, s1, "linear");
+        $("#car2").stop(true, true).css({ left: "0px" })
+          .animate({ left: finish + "px" }, s2, "linear");
+        $("#car3").stop(true, true).css({ left: "0px" })
+          .animate({ left: finish + "px" }, s3, "linear");
       });
     });
   </script>
