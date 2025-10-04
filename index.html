@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>F1 Racet</title>
+<style>
+	  
+	#car {
+      position: absolute;
+      left: 0px;
+      top: 50px;  /* distance from bottom */
+      
+      animation: drive 5s linear infinite; /* 5s per loop */
+ }
+	
+    button {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      
+    }
+	
+	<!-- jQuery CDN -->
+  
+	
+</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
+<body>
+<button id="start">Race</button>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8MnNPWrAWPtJCYbc1uZhIedXDXjRyNVa5CQ&s" alt="Car" id="car">
+
+	
+	<script>
+    $(document).ready(function() {
+      $("#start").click(function() {
+        var $car = $("#car");
+
+        // reset position
+        $car.stop(true, true).css({ left: "0px" });
+
+        // animate to the right side of the screen
+        $car.animate(
+          { left: ($(window).width() - $car.width()) + "px" }, // move across full screen width
+          5000, // 5 seconds
+          "linear" // smooth speed
+        );
+      });
+    });
+  </script>
+	
+</body>
+
+</html>
