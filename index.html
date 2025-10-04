@@ -5,13 +5,18 @@
 <title>F1 Racet</title>
 <style>
 	  
-	#car {
+	.car {
       position: absolute;
       left: 0px;
-      top: 50px;  /* distance from bottom */
-      
-      animation: drive 5s linear infinite; /* 5s per loop */
+      top: 50px;
+		    height: 100px;
+		    width: 200px;
  }
+	
+	   /* put cars on different lanes */
+    #car1 { top: 25px; }
+    #car2 { top: 150px; }
+    #car3 { top: 250px; }
 	
     button {
       position: absolute;
@@ -31,13 +36,14 @@
 
 <body>
 <button id="start">Race</button>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8MnNPWrAWPtJCYbc1uZhIedXDXjRyNVa5CQ&s" alt="Car" id="car">
-
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8MnNPWrAWPtJCYbc1uZhIedXDXjRyNVa5CQ&s" id="car1" class="car">
+<img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZUiJPgHQzaO05QejgC-KyDtzoeOJXJc2YvQ&s" id="car2" class="car">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgZj26kZuwefVVulEvliuhMSypgYEP_TwhPQ&s" id="car3" class="car">
 	
 	<script>
     $(document).ready(function() {
       $("#start").click(function() {
-        var $car = $("#car");
+        var $car = $(".car");
 
         // reset position
         $car.stop(true, true).css({ left: "0px" });
